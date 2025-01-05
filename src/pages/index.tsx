@@ -1,7 +1,10 @@
 // pages/signup.tsx
 import { useState } from "react";
+import { useRouter } from "next/router"; // Import useRouter for navigation
 
 const SignUpPage = () => {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     name: "",
     gender: "",
@@ -33,9 +36,8 @@ const SignUpPage = () => {
       return;
     }
 
-    // Additional logic to handle sign-up (e.g., API call)
-    console.log("Form Data:", formData);
-    alert("Sign-up successful!");
+    // Redirect to agreement page
+    router.push("/agreement");
   };
 
   return (
@@ -88,7 +90,6 @@ const SignUpPage = () => {
             <option value="">Select Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
-
           </select>
         </div>
 
